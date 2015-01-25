@@ -74,15 +74,15 @@ public class QuizActivity extends ActionBarActivity {
             }
         });
 
-        mPrevButton = (Button) findViewById(R.id.next_button);
+        mPrevButton = (Button) findViewById(R.id.prev_button);
         mPrevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
+                mCurrentIndex = (mCurrentIndex - 1 + mQuestionBank.length)  % mQuestionBank.length;
                 updateQuestion();
             }
         });
-        updateQuestion();
+
 
         mNextButton = (Button) findViewById(R.id.next_button);
         mNextButton.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +92,7 @@ public class QuizActivity extends ActionBarActivity {
                 updateQuestion();
             }
         });
+
         updateQuestion();
     }
 
